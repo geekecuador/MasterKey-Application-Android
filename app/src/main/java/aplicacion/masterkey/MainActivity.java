@@ -1,6 +1,7 @@
 package aplicacion.masterkey;
 
 import android.content.Context;
+import android.content.pm.ActivityInfo;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         if(coneccionWifi() || coneccionDatos()){
             setContentView(R.layout.activity_main);
+            setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
             webView=(WebView) findViewById(R.id.navegador);
             WebSettings webSettings = webView.getSettings();
             webSettings.setAppCachePath("/data/data/"+ getPackageName() +"/cache");
